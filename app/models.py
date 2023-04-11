@@ -14,7 +14,7 @@ class Car(models.Model):
         return self.name
     
 class Konfigurator(models.Model):
-    name =  models.ForeignKey(Car, on_delete=models.CASCADE)
+    car =  models.ForeignKey(Car, on_delete=models.CASCADE)
     konfiguratsiya = models.CharField(max_length=50)
     price = models.IntegerField()
     description = models.TextField()
@@ -22,4 +22,4 @@ class Konfigurator(models.Model):
     dvigatel = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.name.name
+        return self.car.name
