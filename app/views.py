@@ -15,7 +15,7 @@ class CarViewSet(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.data)
+        return Response(serializer.errors)
 
     def get(self, request):
         try:
@@ -35,3 +35,56 @@ class CarViewSet(APIView):
             return Response(serializer.errors)
         except ObjectDoesNotExist:
             return Response({'error': 'Car does not exist'})
+        
+    def delete(self, request, pk):
+        try:
+            car = Car.objects.get(pk=pk)
+            car.delete()
+            return Response({'deleted': True})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Car does not exist'})
+        
+class KonfiguratorViewSet(APIView):
+    def post(self, request):
+        data = request.data
+        serializer = KonfiguratorSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+    def get(self, request):
+        try:
+            konfigurator = Konfigurator.objects.all()
+            serializer = KonfiguratorSerializer(konfigurator, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Konfigurator does not exist'})
+        
+    def put(self, request, pk):
+        try:
+            konfigurator = Konfigurator.objects.get(pk=pk)
+            serializer = KonfiguratorSerializer(instance=konfigurator, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Konfigurator does not exist'})
+        
+    def delete(self, request, pk):
+        try:
+            konfigurator = Konfigurator.objects.get(pk=pk)
+            konfigurator.delete()
+            return Response({'deleted': True})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Konfigurator does not exist'})
+        
+class Konfiguratorget(APIView):
+    def get(self, request, pk):
+        try:
+            konfigurator = Konfigurator.objects.filter(name=pk)
+            serializer = KonfiguratorSerializer(konfigurator, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Konfigurator does not exist'})
