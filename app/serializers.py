@@ -7,6 +7,7 @@ class CarSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 class KonfiguratorSerializer(serializers.ModelSerializer):
+    sub_car = CarSerializer(many=True, read_only=True)
     class Meta:
         model = Konfigurator
         fields = '__all__'
