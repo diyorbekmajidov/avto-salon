@@ -83,8 +83,8 @@ class KonfiguratorViewSet(APIView):
 class Konfiguratorget(APIView):
     def get(self, request, pk):
         try:
-            konfigurator = Konfigurator.objects.filter(name=pk)
-            serializer = KonfiguratorSerializer(konfigurator, many=True)
+            name = Konfigurator.objects.filter(id=pk)
+            serializer = KonfiguratorSerializer(name, many=True)
             return Response(serializer.data)
         except ObjectDoesNotExist:
             return Response({'error': 'Konfigurator does not exist'})
