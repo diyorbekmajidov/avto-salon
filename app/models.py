@@ -14,7 +14,7 @@ class Car(models.Model):
         return self.name
     
 class Konfigurator(models.Model):
-    car =  models.ForeignKey(Car, on_delete=models.CASCADE)
+    car =  models.ForeignKey(Car, on_delete=models.CASCADE, related_name='konfiguratsiya') 
     konfiguratsiya = models.CharField(max_length=50)
     price = models.IntegerField()
     description = models.TextField()
