@@ -36,11 +36,12 @@ class CarViewSet(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Car does not exist'})
         
-    def delete(self, request, pk):
+class CarViewdelete(APIView):
+    def post(self, request, pk):
         try:
             car = Car.objects.get(pk=pk)
             car.delete()
-            return Response({'deleted': True})
+            return Response({'deleted': "deleted id: " + str(pk)})
         except ObjectDoesNotExist:
             return Response({'error': 'Car does not exist'})
         
@@ -72,7 +73,7 @@ class KonfiguratorViewSet(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Konfigurator does not exist'})
         
-    def delete(self, request, pk):
+    def post(self, request, pk):
         try:
             konfigurator = Konfigurator.objects.get(pk=pk)
             konfigurator.delete()
