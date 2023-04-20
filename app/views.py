@@ -72,7 +72,8 @@ class KonfiguratorViewSet(APIView):
             return Response(serializer.errors)
         except ObjectDoesNotExist:
             return Response({'error': 'Konfigurator does not exist'})
-        
+
+class Konfiguratordelete(APIView):    
     def post(self, request, pk):
         try:
             konfigurator = Konfigurator.objects.get(pk=pk)
