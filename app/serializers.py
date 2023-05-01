@@ -1,5 +1,15 @@
 from rest_framework import serializers
-from .models import Car, Konfigurator
+from .models import (
+    Car, 
+    Konfigurator,
+    Dilery,
+    Extiyot_qisimlar,
+    Sub_extiyotqisimlar,
+    Cart,
+    Cart_extiyotqisimlar,
+    Order,
+    Order_extiyotqisimlar,
+    )
 
 
     
