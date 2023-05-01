@@ -6,7 +6,7 @@ class Car(models.Model):
     name = models.CharField(max_length=50)
     typename= models.CharField(max_length=50)
     model = models.CharField(max_length=50)
-    price = models.IntegerField()
+    price = models.FloatField()
     description = models.TextField()
     image = models.TextField()
 
@@ -16,10 +16,20 @@ class Car(models.Model):
 class Konfigurator(models.Model):
     car =  models.ForeignKey(Car, on_delete=models.CASCADE, related_name='konfiguratsiya') 
     konfiguratsiya = models.CharField(max_length=50)
-    price = models.IntegerField()
+    price = models.FloatField()
     description = models.TextField()
     img = models.TextField()
     dvigatel = models.CharField(max_length=50)
 
     def __str__(self):
         return self.car.name
+    
+class Dilery(models.Model):
+    name= models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+
+    def __str__(self):  
+        return self.name
+    
+# class Zakaz(models.Model):
