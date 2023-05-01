@@ -9,6 +9,19 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 class CarViewSet(APIView):
+    """
+    url: http://127.0.0.1:8000/api/car/
+    create a new car
+    input: {
+        "name": "BMW",
+        "typename": "sedan",
+        "model": "M5",
+        "price": 100000,
+        "description": "good car",
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bmw.com%2Fen%2Findex.html&psig=AOvVaw0QZ2Z4Q4Z2Q8ZQX6Z2Z2Z2&ust=1619786166262000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjQ4ZqH4_ACFQAAAAAdAAAAABAD"
+    }
+    
+    """
     def post(self, request):
         data = request.data
         serializer = CarSerializer(data=data)
