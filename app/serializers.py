@@ -29,3 +29,7 @@ class DilerySerializer(serializers.ModelSerializer):
         model = Dilery
         fields = '__all__'
 
+class Extiyot_qisimlarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Extiyot_qisimlar
+        fields = '__all__'
