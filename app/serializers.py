@@ -23,3 +23,9 @@ class CarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
         fields = '__all__'
+
+class DilerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Dilery
+        fields = '__all__'
+
