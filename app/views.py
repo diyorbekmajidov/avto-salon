@@ -9,6 +9,7 @@ from .serializers import (
     KonfiguratorSerializer,
     DilerySerializer,
     Extiyot_qisimlarSerializer,
+    Sub_extiyotqisimlarSerializer,
 )
 
 
