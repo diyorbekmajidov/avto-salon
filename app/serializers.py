@@ -33,3 +33,8 @@ class Extiyot_qisimlarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Extiyot_qisimlar
         fields = '__all__'
+
+class Sub_extiyotqisimlarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sub_extiyotqisimlar
+        fields = '__all__'
