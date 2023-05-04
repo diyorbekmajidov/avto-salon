@@ -8,8 +8,12 @@ from .serializers import (
     CarSerializer, 
     KonfiguratorSerializer,
     DilerySerializer,
-    Extiyot_qisimlarSerializer,
-    Sub_extiyotqisimlarSerializer,
+    PartsSerializer,
+    Sub_SparepartsSerializer,
+    CartSerializer,
+    Cart_SparepartsSerializer,
+    OrderSerializer,
+    Order_SparepartsSerializer,
 )
 
 
