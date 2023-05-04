@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from .models import Car, Konfigurator
+from .models import (
+    Car, 
+    Konfigurator,
+    Dilery,
+    )
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -126,3 +130,31 @@ class Konfiguratorget(APIView):
             return Response(serializer.data)
         except ObjectDoesNotExist:
             return Response({'error': 'Konfigurator does not exist'})
+
+class DileryViewSet(APIView):
+    def post(self, request):
+        data = request.data
+        serializer = DilerySerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+    def get(self, request):
+        try:
+            dilery = Dilery.objects.all()
+            serializer = DilerySerializer(dilery, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Dilery does not exist'})
+        
+    def put(self, request, pk):
+        try:
+            dilery = Dilery.objects.get(pk=pk)
+            serializer = DilerySerializer(instance=dilery, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Dilery does not exist'})
