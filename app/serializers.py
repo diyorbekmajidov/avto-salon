@@ -29,12 +29,34 @@ class DilerySerializer(serializers.ModelSerializer):
         model = Dilery
         fields = '__all__'
 
-class Extiyot_qisimlarSerializer(serializers.ModelSerializer):
+class PartsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Extiyot_qisimlar
         fields = '__all__'
 
-class Sub_extiyotqisimlarSerializer(serializers.ModelSerializer):
+class Sub_SparepartsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sub_extiyotqisimlar
         fields = '__all__'
+
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = '__all__'
+
+class Cart_SparepartsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart_extiyotqisimlar
+        fields = '__all__'
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
+class Order_SparepartsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order_extiyotqisimlar
+        fields = '__all__'
+
+
