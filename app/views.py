@@ -3,6 +3,13 @@ from .models import (
     Car, 
     Konfigurator,
     Dilery,
+    Extiyot_qisimlar,
+    Sub_extiyotqisimlar,
+    Cart,
+    Order,
+    Cart_extiyotqisimlar,
+    Order_extiyotqisimlar,
+    
     )
 from rest_framework.request import Request
 from rest_framework.response import Response
