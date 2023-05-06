@@ -4,6 +4,7 @@ from .views import (CarViewSet,
     Konfiguratorget,
     CarViewdelete,
     Konfiguratordelete,
+    DileryViewSet,
     )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path('konfigurator/<int:pk>/', Konfiguratorget.as_view()),
     path('car/delete/<int:pk>/', CarViewdelete.as_view()),
     path('konfigurator/delete/<int:pk>/', Konfiguratordelete.as_view()),
+    path('dilery/', DileryViewSet.as_view()),
 ]
