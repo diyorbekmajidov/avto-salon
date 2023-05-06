@@ -9,7 +9,7 @@ from .models import (
     Order,
     Cart_extiyotqisimlar,
     Order_extiyotqisimlar,
-    
+
     )
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -165,3 +165,15 @@ class DileryViewSet(APIView):
             return Response(serializer.errors)
         except ObjectDoesNotExist:
             return Response({'error': 'Dilery does not exist'})
+        
+class Dilerydelete(APIView):
+    def post(self,request, pk):
+        try:
+            dilery = Dilery.objects.get(pk=pk)
+            dilery.delete()
+            return Response({'deleted': "deleted id: " + str(pk)})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Dilery does not exist'})
+
+
+        
