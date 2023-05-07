@@ -121,6 +121,16 @@ class KonfiguratorViewSet(APIView):
             return Response({'error': 'Konfigurator does not exist'})
 
 class Konfiguratordelete(APIView):    
+    """
+    url: http://konfigurator/delete/<int:pk>/
+    delete konfigurator
+    input: {
+        "id": 1,
+    }
+    returns: {
+        "deleted": "delet konfigurator by id: 1"
+    }
+    """
     def post(self, request, pk):
         try:
             konfigurator = Konfigurator.objects.get(pk=pk)
@@ -130,6 +140,24 @@ class Konfiguratordelete(APIView):
             return Response({'error': 'Konfigurator does not exist'})
         
 class Konfiguratorget(APIView):
+    """
+    url: http://http://127.0.0.1:8000/api/konfiguratorget/1/
+    get car id all konfigurator
+    input: {
+        "id": 1,
+    }
+    returns: [{
+        "id": 1,
+        "car": 1,
+        "name": "BMW",
+        "typename": "sedan",
+        "model": "M5",
+        "price": 100000,
+        "description": "good car",
+        "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bmw.com%2Fen%2Findex.html&psig=AOvVaw0QZ2Z4Q4Z2Q8ZQX6Z2Z2Z2&ust=1619786166262000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjQ4ZqH4_ACFQAAAAAdAAAAABAD"
+        }
+    ]
+    """
     def get(self, request, pk):
         arr=[]
         try:
