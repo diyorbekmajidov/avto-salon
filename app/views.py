@@ -131,13 +131,17 @@ class Konfiguratordelete(APIView):
         
 class Konfiguratorget(APIView):
     def get(self, request, pk):
+        arr=[]
         try:
-            name = Konfigurator.objects.filter(id=pk)
-            serializer = KonfiguratorSerializer(name, many=True)
-            return Response(serializer.data)
+            for i in Konfigurator.objects.all():
+                print((i.car.id))
+                if i.car.id == pk:
+                    serializer = KonfiguratorSerializer(i)
+                    arr.append(serializer.data)
+            return Response(arr)
         except ObjectDoesNotExist:
             return Response({'error': 'Konfigurator does not exist'})
-
+            
 class DileryViewSet(APIView):
     def post(self, request):
         data = request.data
