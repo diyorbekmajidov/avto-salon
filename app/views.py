@@ -281,6 +281,41 @@ class Dilerydelete(APIView):
             return Response({'deleted': "deleted id: " + str(pk)})
         except ObjectDoesNotExist:
             return Response({'error': 'Dilery does not exist'})
+        
+class Extiyot_qisimlarView(APIView):
+    """
+    url: http://api/extiyot_qisimlar/
+    create extiyot_qisimlar
+    input: {
+        "id": 1,
+        "name": "
+    """
+    def post(self, request):
+        data = request.data
+        serializer = PartsSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+    def get(self, request):
+        try:
+            extiyot = Extiyot_qisimlar.objects.all()
+            serializer = PartsSerializer(extiyot, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Extiyot does not exist'})
+        
+    def put(self, request, pk):
+        try:
+            extiyot = Extiyot_qisimlar.objects.get(pk=pk)
+            serializer = PartsSerializer(instance=extiyot, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Extiyot does not exist'})
 
 
         
