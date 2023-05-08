@@ -288,7 +288,12 @@ class Extiyot_qisimlarView(APIView):
     create extiyot_qisimlar
     input: {
         "id": 1,
-        "name": "
+        "name": "tros",
+        }
+    return: {
+        "id": 1,
+        "name": "tros",
+        }
     """
     def post(self, request):
         data = request.data
