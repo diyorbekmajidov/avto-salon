@@ -42,7 +42,6 @@ class Extiyot_qisimlar(models.Model):
 class Sub_extiyotqisimlar(models.Model):
     extiyot_qisimlar = models.ForeignKey(Extiyot_qisimlar, on_delete=models.CASCADE, related_name='sub_extiyot_qisimlar')
     name = models.CharField(max_length=50)
-    price = models.FloatField()
     description = models.TextField()
     img = models.TextField()
 
