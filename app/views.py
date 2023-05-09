@@ -341,3 +341,25 @@ class Extiyot_qisimlardelete(APIView):
             return Response({'deleted': "deleted id: " + str(pk)})
         except ObjectDoesNotExist:
             return Response({'error': 'Extiyot does not exist'})
+        
+class Sub_extiyotqisimlarView(APIView):
+    def post(self, request):
+        """
+        url: http://api/sub_extiyotqisimlar/
+        create sub_extiyotqisimlar
+        input: {
+            "id": 1,
+            "name": "tros",
+            "price": 10000,
+            "description": "good",
+            "img":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bmw.com%2Fen%2Findex.html&psig=AOvVaw0QZ2Z4Q4Z2Q8ZQX6Z2Z2Z2&ust=1619786166262000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjQ4ZqH4_ACFQAAAAAdAAAAABAD",
+            "extiyot_qisimlar": 1
+            }
+
+            """
+        data = request.data
+        serializer = Sub_SparepartsSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
