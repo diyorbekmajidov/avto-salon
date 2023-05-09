@@ -9,6 +9,7 @@ from .views import (
     DileryViewSet,
     Dilerydelete,
     Extiyot_qisimlarView,
+    Extiyot_qisimlardelete
     )
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path('dilery/delete/<int:pk>/', Dilerydelete.as_view()),
 
     path('extiyot_qisimlar/', Extiyot_qisimlarView.as_view()),
+    path('extiyotqisimlar_delet/<int:pk>/', Extiyot_qisimlardelete.as_view()),
 ]

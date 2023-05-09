@@ -323,4 +323,21 @@ class Extiyot_qisimlarView(APIView):
             return Response({'error': 'Extiyot does not exist'})
 
 
-        
+class Extiyot_qisimlardelete(APIView):
+    """
+    url: http://api/extiyot_qisimlardelete/1/
+    delete extiyot_qisimlar
+    input: {
+        "id": 1,
+        }
+    return: {
+        "deleted": "deleted id: 1"
+        }
+    """
+    def post(self, request, pk):
+        try:
+            extiyot = Extiyot_qisimlar.objects.get(pk=pk)
+            extiyot.delete()
+            return Response({'deleted': "deleted id: " + str(pk)})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Extiyot does not exist'})
