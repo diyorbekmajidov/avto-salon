@@ -15,6 +15,12 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.core.exceptions import ObjectDoesNotExist
+
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.hashers import make_password
 from .serializers import (
     CarSerializer, 
     KonfiguratorSerializer,
@@ -360,7 +366,7 @@ class Sub_extiyotqisimlarView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
-    def get(self, request,id):
+    def get(self, requset,id):
         arr=[]
         try:
 
@@ -373,10 +379,10 @@ class Sub_extiyotqisimlarView(APIView):
 
             
         
-    def put(self, request, pk):
+    def put(self, requset, pk):
         try:
             extiyot_qisimlar = Extiyot_qisimlar.objects.get(pk=pk)
-            serializer = PartsSerializer(instance=extiyot_qisimlar, data=request.data)
+            serializer = PartsSerializer(instance=extiyot_qisimlar, data=requset.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
@@ -385,7 +391,52 @@ class Sub_extiyotqisimlarView(APIView):
             return Response({'error': 'Extiyot does not exist'})
     
 class Sub_extiyot_delet(APIView):
-    def post(self, request, pk):
+    def post(self, requset, pk):
         sub_extiyotqisim = Sub_extiyotqisimlar.objects.get(id=pk)
         sub_extiyotqisim.delete()
         return Response({"id":"delet by id"})
+    
+class Usercreateviews(APIView):
+    def post(self,requset):
+        data = requset.data
+        username = data.get('username')
+        password = data.get('password')
+        if User.objects.filter(username = username):
+            return Response({"return":"Such a user exists"})
+        else:
+
+            user = User.objects.create(username=username,password=password)
+            token = Token.objects.create(user = user)
+            return Response({'token':token.key})
+        
+class CartView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        data = request.data
+        data['user'] = request.user.id
+        serializer = CartSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    def get(self, request):
+        try:
+            user=request.user
+            cart = Cart.objects.filter(user=user)
+            serializer = CartSerializer(cart, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Cart does not exist'})
+        
+class Cartdelete(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request, pk):
+        try:
+            user = request.user
+            cart  = Cart.objects.filter(user=user,id=pk)
+            cart.delete()
+            return Response({'deleted': "deleted id: "})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Cart does not exist'})
