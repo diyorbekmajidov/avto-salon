@@ -409,6 +409,20 @@ class Usercreateviews(APIView):
             token = Token.objects.create(user = user)
             return Response({'token':token.key})
         
+class Userlogoutviews(APIView):
+    def post(self,requset):
+            """
+    Logout a user
+    input: https://api/logout/
+    
+    """
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    def post(self, request):
+        request.user.auth_token.delete()
+        return Response({'success': 'Successfully logged out.'})
+        
 class CartView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
