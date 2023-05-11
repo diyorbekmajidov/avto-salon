@@ -476,4 +476,48 @@ class Cartdelete(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Cart does not exist'})
         
+class Cart_extiyotqisimlarView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        data = request.data
+        data['user'] = request.user.id
+        serializer = Cart_SparepartsSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    def get(self, request):
+        try:
+            user=request.user
+            cart = Cart_extiyotqisimlar.objects.filter(user=user)
+            serializer = Cart_SparepartsSerializer(cart, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Cart does not exist'})
+    def put(self, request, pk):
+        try:
+            user = request.user
+            cart = Cart_extiyotqisimlar.objects.filter(user=user,id=pk)
+            serializer = Cart_SparepartsSerializer(instance=cart, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Cart does not exist'})
+        
+class Cart_extiyotqisimlardelete(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request, pk):
+        try:
+            user = request.user
+            cart  = Cart_extiyotqisimlar.objects.filter(user=user,id=pk)
+            cart.delete()
+            return Response({'deleted': "deleted id: "})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Cart does not exist'})
+        
+        
 
