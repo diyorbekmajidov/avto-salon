@@ -28,4 +28,5 @@ urlpatterns = [
     path('extiyot_qisimlar/', Extiyot_qisimlarView.as_view()),
     path('extiyotqisimlar_delet/<int:pk>/', Extiyot_qisimlardelete.as_view()),
     path('sub_extiyotqisimlar/', Sub_extiyotqisimlarView.as_view()),
+    path("sub_extiyotqisimlar/<int:id>/", Sub_extiyotqisimlarView.as_view(), name="sub_extiyotqisimlar"),
 ]
