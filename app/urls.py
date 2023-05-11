@@ -11,7 +11,10 @@ from .views import (
     Extiyot_qisimlarView,
     Extiyot_qisimlardelete,
     Sub_extiyotqisimlarView,
-    Sub_extiyot_delet
+    Sub_extiyot_delet,
+    Usercreateviews,
+    CartView,
+    Cartdelete,
     )
 
 urlpatterns = [
@@ -31,4 +34,9 @@ urlpatterns = [
     path('sub_extiyotqisimlar/', Sub_extiyotqisimlarView.as_view()),
     path("sub_extiyotqisimlar/<int:id>/", Sub_extiyotqisimlarView.as_view(), name="sub_extiyotqisimlar"),
     path("sub_extiyot_delet/<int:pk>/", Sub_extiyot_delet.as_view()),
+
+    path("usercreate/", Usercreateviews.as_view()),
+
+    path("cartcar/", CartView.as_view()),
+    path("cartcardelete/<int:pk>/", Cartdelete.as_view()),
 ]
