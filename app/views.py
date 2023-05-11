@@ -383,3 +383,9 @@ class Sub_extiyotqisimlarView(APIView):
             return Response(serializer.errors)
         except ObjectDoesNotExist:
             return Response({'error': 'Extiyot does not exist'})
+    
+class Sub_extiyot_delet(APIView):
+    def post(self, request, pk):
+        sub_extiyotqisim = Sub_extiyotqisimlar.objects.get(id=pk)
+        sub_extiyotqisim.delete()
+        return Response({"id":"delet by id"})
