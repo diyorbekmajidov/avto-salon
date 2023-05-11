@@ -236,12 +236,9 @@ class Konfiguratorget(APIView):
     def get(self, request, pk):
         arr=[]
         try:
-            for i in Konfigurator.objects.all():
-                print((i.car.id))
-                if i.car.id == pk:
-                    serializer = KonfiguratorSerializer(i)
-                    arr.append(serializer.data)
-            return Response(arr)
+            konfigurator = Konfigurator.objects.filter(car=pk)
+            serializer = KonfiguratorSerializer(konfigurator, many=True)
+            return Response(serializer.data)
         except ObjectDoesNotExist:
             return Response({'error': 'Konfigurator does not exist'})
             
@@ -363,3 +360,26 @@ class Sub_extiyotqisimlarView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+    def get(self, request,id):
+        arr=[]
+        try:
+
+            extiyot = Extiyot_qisimlar.objects.get(pk=id)
+            sub_qisimlar=extiyot.sub_extiyot_qisimlar.all()
+            serializer = Sub_SparepartsSerializer(sub_qisimlar,many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Extiyot does not exist'})
+
+            
+        
+    def put(self, request, pk):
+        try:
+            extiyot_qisimlar = Extiyot_qisimlar.objects.get(pk=pk)
+            serializer = PartsSerializer(instance=extiyot_qisimlar, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Extiyot does not exist'})
