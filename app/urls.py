@@ -13,9 +13,11 @@ from .views import (
     Sub_extiyotqisimlarView,
     Sub_extiyot_delet,
     Usercreateviews,
+    Userlogoutviews,
+    Userloginviews,
     CartView,
     Cartdelete,
-    Userlogoutviews,
+    
     )
 
 urlpatterns = [
@@ -41,4 +43,5 @@ urlpatterns = [
 
     path("cartcar/", CartView.as_view()),
     path("cartcardelete/<int:pk>/", Cartdelete.as_view()),
+    path("userlogin/", Userloginviews.as_view()),
 ]
