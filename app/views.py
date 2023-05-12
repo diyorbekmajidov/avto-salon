@@ -9,6 +9,7 @@ from .models import (
     Order,
     Cart_extiyotqisimlar,
     Order_extiyotqisimlar,
+    Like_Car
 
     )
 from rest_framework.request import Request
@@ -31,6 +32,7 @@ from .serializers import (
     Cart_SparepartsSerializer,
     OrderSerializer,
     Order_SparepartsSerializer,
+    Like_CarSerializer
 )
 
 
@@ -519,5 +521,23 @@ class Cart_extiyotqisimlardelete(APIView):
         except ObjectDoesNotExist:
             return Response({'error': 'Cart does not exist'})
         
-        
+class LikeCarViews(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    def post(self, request):
+        data = request.data
+        data['user'] = request.user.id
+        serializer = Like_CarSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    def get(self, request):
+        try:
+            user=request.user
+            like = Like_Car.objects.filter(user=user)
+            serializer = Like_CarSerializer(like, many=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response({'error': 'Like does not exist'})
 
