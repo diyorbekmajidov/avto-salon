@@ -9,6 +9,7 @@ from .models import (
     Cart_extiyotqisimlar,
     Order,
     Order_extiyotqisimlar,
+    Like_Car
     )
 
 
@@ -58,4 +59,7 @@ class Order_SparepartsSerializer(serializers.ModelSerializer):
         model = Order_extiyotqisimlar
         fields = '__all__'
 
-
+class Like_CarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Like_Car
+        fields = '__all__'
