@@ -20,6 +20,9 @@ from .views import (
     Cart_extiyotqisimlarView,
     Cart_extiyotqisimlardelete,
     LikeCarViews,
+    LikeCardelete,
+    All_lekicar,
+    LikeUpdate,
     )
 
 urlpatterns = [
@@ -50,5 +53,8 @@ urlpatterns = [
     path("cart_extiyotqisimlardelete/<int:pk>/", Cart_extiyotqisimlardelete.as_view()),
 
     path("likecar/", LikeCarViews.as_view()),
+    path("likecardelete/<int:pk>/", LikeCardelete.as_view()),
+    path("all_lekicar/", All_lekicar.as_view()),
+    path("likeupdate/<int:pk>/", LikeUpdate.as_view()),
     
 ]
