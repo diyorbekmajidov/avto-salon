@@ -540,4 +540,45 @@ class LikeCarViews(APIView):
             return Response(serializer.data)
         except ObjectDoesNotExist:
             return Response({'error': 'Like does not exist'})
+        
+class LikeCardelete(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self, request, pk):
+        try:
+            user = request.user
+            like  = Like_Car.objects.filter(user=user,id=pk)
+            like.delete()
+            return Response({'deleted': "deleted id: "})
+        except ObjectDoesNotExist:
+            return Response({'error': 'Like does not exist'})
+class LikeUpdate(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def post(self , request, pk):
+        data = request.data
+        data['user'] = request.user.id
+        userlike = Like_Car.objects.get(user=request.user,id=pk)
+        if userlike.like == True:
+            data["like"] = False    
+            serializers = Like_CarSerializer(instance=userlike, data=data)
+            if serializers.is_valid():
+                serializers.save()
+                return Response(serializers.data)
+            return Response(serializers.errors)
+        else:
+            data["like"] = True
+            serializers = Like_CarSerializer(instance=userlike, data=data)
+            if serializers.is_valid():
+                serializers.save()
+                return Response(serializers.data)
+            return Response(serializers.errors)
+
+
+
+class All_lekicar(APIView):
+    def get(self, request):
+        lekicar = Like_Car.objects.all()
+        serializer = Like_CarSerializer(lekicar, many=True)
+        return Response(serializer.data)
 
