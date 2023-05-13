@@ -85,6 +85,8 @@ class Order_extiyotqisimlar(models.Model):
 class Like_Car(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='like_car')
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='like_car')
+    like = models.BooleanField(default=False, blank=True, null=True)
+    dislike = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
