@@ -15,5 +15,11 @@ the avto-slon API has the following endpoints:
 |Get | <a href="konfiguratorget/<int:pk>/"`Konfiguratorget`> </a>| get a konfigurator by id |
 |Put | <a href="konfigurator/{id}"`KonfiguratorViewSet`> </a>| update a konfigurator by id |
 |Post | <a href="konfigurator/delete/<int:pk>/"`Konfiguratordelete`> </a>| delete a konfigurator by id |
+| --- | --- |--- |
+|Post | <a href="dilery/"`DileryViewSet`> </a>| add a new loction |
+|Get | <a href="dilery/"`DileryViewSet`> </a>| get a list of all locations |
+|Put | <a href="dilery/{id}"`DileryViewSet`> </a>| update a location by id |
+|Post | <a href="dilery/delete/<int:pk>/"`Dilerydelete`> </a>| delete a location by id |
+| --- | --- |--- |
 
 
