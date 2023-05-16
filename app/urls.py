@@ -29,10 +29,10 @@ urlpatterns = [
     path('car/', CarViewSet.as_view()),
     path('car/delete/<int:pk>/', CarViewdelete.as_view()),
     path('car/get/<int:pk>/', Carget.as_view()),
-    path('car/<int:id>/', CarViewSet.as_view(), name="car"),
+    path('car/<int:pk>/', CarViewSet.as_view(), name="car"),
 
     path('konfigurator/', KonfiguratorViewSet.as_view()),
-    path('konfigurator/<int:id>/', KonfiguratorViewSet.as_view(), name="konfigurator"),
+    path('konfigurator/<int:pk>/', KonfiguratorViewSet.as_view(), name="konfigurator update"),
     path('konfiguratorget/<int:pk>/', Konfiguratorget.as_view()),
     path('konfigurator/delete/<int:pk>/', Konfiguratordelete.as_view()),
 
