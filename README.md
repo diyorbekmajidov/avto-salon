@@ -21,5 +21,9 @@ the avto-slon API has the following endpoints:
 |Put | <a href="dilery/{id}"`DileryViewSet`> </a>| update a location by id |
 |Post | <a href="dilery/delete/<int:pk>/"`Dilerydelete`> </a>| delete a location by id |
 | --- | --- |--- |
-
+|Post | <a href = "extiyot_qisimlar/" `Extiyot_qisimlarView`> </a>| add a new extiyot_qisimlar |
+|Get | <a href = "extiyot_qisimlar/" `Extiyot_qisimlarView`> </a>| get a list of all extiyot_qisimlar |
+|Put | <a href = "extiyot_qisimlar/{id}" `Extiyot_qisimlarView`> </a>| update a extiyot_qisimlar by id |
+|Post | <a href = "extiyotqisimlar_delet/<int:pk>/" `Extiyot_qisimlardelete`> </a>| delete a extiyot_qisimlar by id |
+| --- | --- |--- |
 
