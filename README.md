@@ -2,7 +2,7 @@
 
 the avto-slon API has the following endpoints:
 
-| Endpoint | Description |
+|Method | Endpoint | Description |
 | --- | --- |--- |
 |Post | <a  href="#car/"`CarViewSet`> </a>| add a new car |
 |Get | <a  href="#car/"`CarViewSet`> </a>| get a list of all cars |
