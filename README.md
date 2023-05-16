@@ -9,3 +9,11 @@ the avto-slon API has the following endpoints:
 |Get | <a  href="#car/{id}"`Carget`> </a>| get a car by id |
 |Put | <a  href="#car/{id}"`CarViewSet`> </a>| update a car by id |
 |Post | <a  href="#car/delete/<int:pk>/"`CarViewdelete`> </a>| delete a car by id |
+| --- | --- |--- |
+|Post | <a href="konfigurator/"`KonfiguratorViewSet`> </a>| add a new konfigurator |
+|Get | <a href="konfigurator/"`KonfiguratorViewSet`> </a>| get a list of all konfigurators |
+|Get | <a href="konfiguratorget/<int:pk>/"`Konfiguratorget`> </a>| get a konfigurator by id |
+|Put | <a href="konfigurator/{id}"`KonfiguratorViewSet`> </a>| update a konfigurator by id |
+|Post | <a href="konfigurator/delete/<int:pk>/"`Konfiguratordelete`> </a>| delete a konfigurator by id |
+
+
