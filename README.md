@@ -83,6 +83,7 @@ the avto-slon API has the following endpoints:
 </div>
 
 <div id="car">
+
 <a href = "#car">^ to the top ^</a> 
 **GET** ```api/car```
 ### url to get all directory
@@ -108,6 +109,7 @@ the avto-slon API has the following endpoints:
 </div>
 
 <div id="car">
+
 <a href = "#car">^ to the top ^</a>
 **PUT** ```api/car/<int:pk>```
 
