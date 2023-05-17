@@ -85,5 +85,83 @@ the avto-slon API has the following endpoints:
 <div id="car">
 <a href = "#car">^ to the top ^</a> 
 **GET** ```api/car```
+### url to get all directory
+```python
+        input:
+            {
+                "id" : "int",
+            }
+        output:
+            [
+                {
+                    "id" : "int",
+                    "name" : "str",
+                    "price" : "int",
+                    "image" : "str",
+                    "description" : "str",
+                    "model" : "str",
+                    "typename" : "str",
+                }
+            ]
+```
+
+</div>
+
+<div id="car">
+<a href = "#car">^ to the top ^</a>
+**PUT** ```api/car/<int:pk>```
+
+### url to update directory by id
+```python
+        input:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "model" : "str",
+                "typename" : "str",
+            }
+        output:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "model" : "str",
+                "typename" : "str",
+            }
+```
+
+</div>
+
+<div id="car">
+<a href = "#car">^ to the top ^</a>
+**DELETE** ```api/car/<int:pk>```
+
+### url to delete directory by id
+```python
+        input:
+            {
+                "id" : "int",
+            }
+        output:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "model" : "str",
+                "typename" : "str",
+            }
+```
+
+</div>
+
+<hr>
+
 
 
