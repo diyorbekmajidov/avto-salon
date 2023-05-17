@@ -35,4 +35,23 @@ the avto-slon API has the following endpoints:
 |Post | <a herf = "userlogout/" `Userlogoutviews`> </a>| user logout|
 |Post | <a herf = "userlogin/" `Userloginviews`> </a>| user log in|
 | --- | --- | --- |
+|Post | <a herf = "cartcar/" `CartView`> </a>| | cart car by id|
+|Get | <a herf = "cartcar/" `CartView`> </a>| | get a list of all cart car |
+|Post | <a herf = "cartcar/delete/<int:pk>/" `CartViewdelete`> </a>| | delete a cart car by id|
+|Post | <a herf = "cartcardelete/" `Cartdelete`> </a>| | delete all cart car |
+| --- | --- | --- |
+|Post | <a herf = "cart_extiyotqisimlar" `Cart_extiyotqisimlarView`> </a>| | cart extiyot qisimlar by id|
+|Get | <a herf = "cart_extiyotqisimlar" `Cart_extiyotqisimlarView`> </a>| | get a list of all cart extiyot qisimlar |
+|Post | <a herf = "cart_extiyotqisimlar/delete/<int:pk>/" `Cart_extiyotqisimlarViewdelete`> </a>| | delete a cart extiyot qisimlar by id|
+|Post | <a herf = "cart_extiyotqisimlardelete/<int:pk>/" `Cart_extiyotqisimlardelete`> </a>| | delete all cart extiyot qisimlar |
+| --- | --- | --- |
+|Post | <a herf = "likecar/" `LikeCarViews`> </a> | like car by id|
+|Get | <a herf = "likecar/" `LikeCarViews`> </a> | get a list of all like car |
+|Post | <a herf = "likeupdate/<int:pk>/" `LikeUpdate`> </a> | Update a like car by id|
+|Post | <a herf = "likecardelete/<int:pk>/" `LikeCardelete`> </a> | delete all like car |
+| --- | --- | --- |
+
+
+
+
 
