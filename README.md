@@ -30,4 +30,9 @@ the avto-slon API has the following endpoints:
 |Get | <a href = "sub_extiyotqisimlar/" `Sub_extiyotqisimlarView`> </a>| get a list of all extiyot qisimlar |
 |Put | <a href = "sub_extiyotqisimlar/{id}" `Sub_extiyotqisimlarView`> </a>| update a extiyot qisimlar by id |
 |Post | <a href = "sub_extiyot_delet/<int:pk>/" `Sub_extiyot_delet`> </a>| delete a extiyot qisimlar by id |
+| --- | --- |--- |
+|Post | <a herf = "usercreate/" `Usercreateviews`> </a>| add a new user |
+|Post | <a herf = "userlogout/" `Userlogoutviews`> </a>| user logout|
+|Post | <a herf = "userlogin/" `Userloginviews`> </a>| user log in|
+| --- | --- | --- |
 
