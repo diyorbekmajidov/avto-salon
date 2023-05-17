@@ -58,7 +58,7 @@ the avto-slon API has the following endpoints:
 <div id="car"> 
 
 **POST** ```api/car```
-### url to add directory
+### url to add car
 ```python
         input:
             {
@@ -85,8 +85,10 @@ the avto-slon API has the following endpoints:
 <div id="car">
 
 <a href = "#car">^ to the top ^</a> 
+
 **GET** ```api/car```
-### url to get all directory
+### url to get all car
+
 ```python
         input:
             {
@@ -113,7 +115,7 @@ the avto-slon API has the following endpoints:
 <a href = "#car">^ to the top ^</a>
 **PUT** ```api/car/<int:pk>```
 
-### url to update directory by id
+### url to update car by id
 ```python
         input:
             {
@@ -143,7 +145,7 @@ the avto-slon API has the following endpoints:
 <a href = "#car">^ to the top ^</a>
 **DELETE** ```api/car/<int:pk>```
 
-### url to delete directory by id
+### url to delete car by id
 ```python
         input:
             {
