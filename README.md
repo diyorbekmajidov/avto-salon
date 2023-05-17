@@ -52,6 +52,38 @@ the avto-slon API has the following endpoints:
 | --- | --- | --- |
 
 
+<hr>
 
+<hr>
+<div id="car"> 
+
+**POST** ```api/car```
+### url to add directory
+```python
+        input:
+            {
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "model" : "str",
+                "typename" : "str",
+            }
+        output:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "model" : "str",
+                "typename" : "str",
+            }
+``` 
+</div>
+
+<div id="car">
+<a href = "#car">^ to the top ^</a> 
+**GET** ```api/car```
 
 
