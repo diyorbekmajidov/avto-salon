@@ -167,5 +167,233 @@ the avto-slon API has the following endpoints:
 
 <hr>
 
+<div id="konfigurator" >
+
+**POST** ```api/konfigurator```
+
+### url to add konfigurator
+```python
+        input:
+            {
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "konfiguratsiya" : "str",
+                "typename" : "str",
+            }
+        output:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "konfiguratsiya" : "str",
+                "typename" : "str",
+            }
+```
+
+</div>
+
+<div id="konfigurator">
+
+<a href = "#konfigurator">^ to the top ^</a>
+
+**GET** ```api/konfigurator```
+
+### url to get all konfigurator
+```python
+        input:
+            {
+            
+            }
+        output:
+            [
+                {
+                    "id" : "int",
+                    "name" : "str",
+                    "price" : "int",
+                    "image" : "str",
+                    "description" : "str",
+                    "konfiguratsiya" : "str",
+                    "typename" : "str",
+                }
+            ]
+```
+
+</div>
+
+<div id="konfigurator">
+
+<a href = "#konfigurator">^ to the top ^</a>
+
+**PUT** ```api/konfigurator/<int:pk>```
+
+### url to update konfigurator by id
+```python
+        input:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "konfiguratsiya" : "str",
+                "typename" : "str",
+            }
+        output:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "konfiguratsiya" : "str",
+                "typename" : "str",
+            }
+```
+
+</div>
+
+<div id="konfigurator">
+
+<a href = "#konfigurator">^ to the top ^</a>
+
+**Post** ```konfigurator/delete/<int:pk>/```
+
+### url to delete konfigurator by id
+```python
+        input:
+            {
+                "id" : "int",
+            }
+        output:
+            {
+                "id" : "int",
+                "name" : "str",
+                "price" : "int",
+                "image" : "str",
+                "description" : "str",
+                "konfiguratsiya" : "str",
+                "typename" : "str",
+            }
+```
+
+</div>
+
+<hr>
+
+<div id="likecar">
+
+**POST** ```api/likecar```
+
+### url to add like car
+```python
+        input:
+            {
+                "car_id" : "int",
+                "user_id" : "int",
+                "like" : "bool",
+                "dislike" : "bool",
+
+            }
+        output:
+            {
+                "id" : "int",
+                "car_id" : "int",
+                "user_id" : "int",
+                "like" : "bool",
+                "dislike" : "bool",
+            }
+```
+
+</div>
+
+<div id="likecar">
+
+<a href = "#likecar">^ to the top ^</a>
+
+**GET** ```api/likecar```
+
+### url to get all like car
+```python
+        input:
+            {
+            
+            }
+        output:
+            [
+                {
+                    "id" : "int",
+                    "car_id" : "int",
+                    "user_id" : "int",
+                    "like" : "bool",
+                    "dislike" : "bool",
+                }
+            ]
+```
+
+</div>
+
+<div id="likecar">
+
+<a href = "#likecar">^ to the top ^</a>
+
+**PUT** ```api/likecar/<int:pk>```
+
+### url to update like car by id
+```python
+        input:
+            {
+                "id" : "int",
+                "car_id" : "int",
+                "user_id" : "int",
+                "like" : "bool",
+                "dislike" : "bool",
+            }
+        output:
+            {
+                "id" : "int",
+                "car_id" : "int",
+                "user_id" : "int",
+                "like" : "bool",
+                "dislike" : "bool",
+            }
+```
+
+</div>
+
+<div id="likecar">
+
+<a href = "#likecar">^ to the top ^</a>
+
+**Post** ```api/likecardelete/<int:pk>/```
+
+### url to delete like car by id
+```python
+        input:
+            {
+                "id" : "int",
+            }
+        output:
+            {
+                "id" : "int",
+                "car_id" : "int",
+                "user_id" : "int",
+                "like" : "bool",
+                "dislike" : "bool",
+            }
+```
+
+</div>
+
+<hr>
+
+
+
+
+
+
 
 
