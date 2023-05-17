@@ -51,8 +51,11 @@ urlpatterns = [
     path("userlogin/", Userloginviews.as_view()),
 
     path("cartcar/", CartView.as_view()),
+    path("cartcar/<int:pk>/", CartView.as_view(), name="cartcar update"),
     path("cartcardelete/<int:pk>/", Cartdelete.as_view()),
+
     path("cart_extiyotqisimlar/", Cart_extiyotqisimlarView.as_view()),
+    path("cart_extiyotqisimlar/<int:pk>/", Cart_extiyotqisimlarView.as_view(), name="cart_extiyotqisimlar update"),
     path("cart_extiyotqisimlardelete/<int:pk>/", Cart_extiyotqisimlardelete.as_view()),
 
     path("likecar/", LikeCarViews.as_view()),
