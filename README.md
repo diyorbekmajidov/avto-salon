@@ -26,4 +26,8 @@ the avto-slon API has the following endpoints:
 |Put | <a href = "extiyot_qisimlar/{id}" `Extiyot_qisimlarView`> </a>| update a extiyot_qisimlar by id |
 |Post | <a href = "extiyotqisimlar_delet/<int:pk>/" `Extiyot_qisimlardelete`> </a>| delete a extiyot_qisimlar by id |
 | --- | --- |--- |
+|Post | <a href = "sub_extiyotqisimlar/" `Sub_extiyotqisimlarView`> </a>| add a new extiyot qisimlar |
+|Get | <a href = "sub_extiyotqisimlar/" `Sub_extiyotqisimlarView`> </a>| get a list of all extiyot qisimlar |
+|Put | <a href = "sub_extiyotqisimlar/{id}" `Sub_extiyotqisimlarView`> </a>| update a extiyot qisimlar by id |
+|Post | <a href = "sub_extiyot_delet/<int:pk>/" `Sub_extiyot_delet`> </a>| delete a extiyot qisimlar by id |
 
