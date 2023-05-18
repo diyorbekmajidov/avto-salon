@@ -380,11 +380,11 @@ class Sub_extiyotqisimlarView(APIView):
             return Response({'error': 'Extiyot does not exist'})
 
             
-        
+class Sub_QisimlarUpdate(APIView):
     def put(self, requset, pk):
         try:
-            extiyot_qisimlar = Extiyot_qisimlar.objects.get(pk=pk)
-            serializer = PartsSerializer(instance=extiyot_qisimlar, data=requset.data)
+            sub_extiyotqisim = Sub_extiyotqisimlar.objects.get(id=pk)
+            serializer = Sub_SparepartsSerializer(instance=sub_extiyotqisim, data=requset.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
