@@ -368,11 +368,11 @@ class Sub_extiyotqisimlarView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
-    def get(self, requset,id):
+    def get(self, requset,pk):
         arr=[]
         try:
 
-            extiyot = Extiyot_qisimlar.objects.get(pk=id)
+            extiyot = Extiyot_qisimlar.objects.get(id=pk)
             sub_qisimlar=extiyot.sub_extiyot_qisimlar.all()
             serializer = Sub_SparepartsSerializer(sub_qisimlar,many=True)
             return Response(serializer.data)
