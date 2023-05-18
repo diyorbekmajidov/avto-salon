@@ -44,6 +44,7 @@ class Sub_extiyotqisimlar(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
     img = models.TextField()
+    imag = models.TextField()
 
     def __str__(self):
         return self.extiyot_qisimlar.name
