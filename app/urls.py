@@ -44,6 +44,7 @@ urlpatterns = [
 
     path('sub_extiyotqisimlar/', Sub_extiyotqisimlarView.as_view()),
     path("sub_extiyotqisimlar/<int:pk>/", Sub_extiyotqisimlarView.as_view(), name="sub_extiyotqisimlar"),
+    path("sub_extiyotqisimupdate/<int:pk>/", Sub_extiyotqisimlarView.as_view(), name="sub_extiyotqisimlar update" ),
     path("sub_extiyot_delet/<int:pk>/", Sub_extiyot_delet.as_view()),
 
     path("usercreate/", Usercreateviews.as_view()),
