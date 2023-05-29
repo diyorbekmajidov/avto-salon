@@ -28,7 +28,7 @@ class Konfigurator(models.Model):
 class Dilery(models.Model):
     name= models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
-    address = models.CharField(max_length=50)
+    address = models.CharField(max_length=250)
 
     def __str__(self):  
         return self.name
